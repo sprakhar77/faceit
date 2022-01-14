@@ -1,4 +1,4 @@
-## Faceit User service 
+## Faceit User Service 
 
 ### Hexagonal Architecture (Ports & Adapter)
 
@@ -21,6 +21,13 @@ Note: If you have Postgres already running you should turn it off
 or
 
 `docker-compose up`
+
+
+## What was not done/ could be extended
+- I did not write tests (unit/integration) as it required much more time than I had at hand. Also most of the validations are already handled by the database (have a look at init.sql). I added some basic validation for email and encrypting the password before storing it in DB
+- I did not implement a concrete Kafka writer as this was out of scope, it could be easily plugged in the UserPublisher port
+- I wrote the database filter to filter on all properties but only exposed Country (via the API package) to external clients as exposing others were out of scope, however they can be easily added be exteniding the requestypes in api package, the database is already prepared for that
+- I did not use UUID to store ids instead I used autoincremented int64 values whcih are very effective in postgres
 
 ## API Documentation
 
