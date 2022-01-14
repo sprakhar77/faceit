@@ -24,10 +24,10 @@ or
 
 
 ## What was not done/ could be extended
-- I did not write tests (unit/integration) as it required much more time than I had at hand. Also most of the validations are already handled by the database (have a look at init.sql). I added some basic validation for email and encrypting the password before storing it in DB
-- I did not implement a concrete Kafka writer as this was out of scope, it could be easily plugged in the UserPublisher port
-- I wrote the database filter to filter on all properties but only exposed Country (via the API package) to external clients as exposing others were out of scope, however they can be easily added be exteniding the requestypes in api package, the database is already prepared for that
-- I did not use UUID to store ids instead I used autoincremented int64 values whcih are very effective in postgres
+- I did not write tests (unit/integration) as it required much more time than I had at hand. Also most of validation tests are already automatically handled by the database (have a look at init.sql). I added some basic validation for email and encrypting the password before storing it in DB.
+- I did not implement a concrete Kafka writer as this was out of scope. It could be easily plugged in to the UserPublisher port
+- I wrote the database filter to filter on all properties but only exposed Country (via the API package) to external clients as exposing others properties was out of scope. However they can be easily added by exteniding the request ypes in api package, the database layer is already prepared to handle that.
+- I did not use UUID to store ids instead I used auto-incremented int64 values which are very effective in postgres.
 
 ## API Documentation
 
