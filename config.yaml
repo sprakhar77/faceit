@@ -1,0 +1,24 @@
+application_id: faceit-test-app
+application_name: Faceit test app
+version: 1
+environment: testing
+log:
+  level: "DEBUG"
+  formatter: "JSON"
+server:
+  port: 8080
+  host: localhost
+  shutdown_timeout: 15s
+database:
+  name: postgres
+  user: postgres
+  password:
+  host: localhost
+  port: 5432
+  ssl_mode: disable
+  query_timeout: 20s
+publisher:
+  user:
+    url: ""
+    event_type: ""
+    enabled: true

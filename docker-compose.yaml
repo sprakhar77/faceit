@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:bullseye
+    restart: always
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: "mysecretpassword"
+    ports:
+      - 5432:5432
+
+  user_service:
+    depends_on:
+      - db
+    build: .
+    restart: always
+    environment:
+      SERVER_HOST: 0.0.0.0
+      DATABASE_HOST: db
+      DATABASE_PASSWORD: "mysecretpassword"
+      PASSWORD_ENCRYPTION_KEY: "abcdfgrdexdfrdfg"
+    ports:
+      - 8080:8080
