@@ -31,10 +31,16 @@ or
 
 ## API Documentation
 
-### Creates a new user
+### Health endpoint
 
 ```http
-POST /users/
+GET /health
+```
+
+### Create a new user
+
+```http
+POST /users
 ```
 
 Body
